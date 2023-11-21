@@ -1,0 +1,36 @@
+{
+  "name": "openai-single-response",
+  "version": "1.0.0",
+  "description": "A TypeScript utility for single-use interactions with OpenAI's chat API, featuring schema-based response parsing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amunzen/openai-single-response.git"
+  },
+  "keywords": [
+    "openai",
+    "chat",
+    "api",
+    "typescript",
+    "single-use",
+    "schema",
+    "parse"
+  ],
+  "author": "Keisuke Nagakawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Amunzen/openai-single-response/issues"
+  },
+  "homepage": "https://github.com/Amunzen/openai-single-response#readme",
+  "dependencies": {
+    "openai": "^4.19.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2"
+  }
+}
