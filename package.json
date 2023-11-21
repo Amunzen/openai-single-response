@@ -1,8 +1,9 @@
 {
   "name": "openai-single-response",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A TypeScript utility for single-use interactions with OpenAI's chat API, featuring schema-based response parsing.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "tsc"
