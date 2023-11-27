@@ -3,7 +3,6 @@ import OpenAI from "openai"
 import { z } from "zod"
 import { composeMessages } from "./utils"
 import type {
-  ChatCompletionCreateParams,
   ChatCompletionTool,
   ChatCompletionToolChoiceOption,
 } from "openai/resources/chat/completions"
@@ -45,7 +44,6 @@ export async function getSingleChatCompletion({
   systemPrompt,
   userPrompt,
   schema,
-  response_format = { type: "text" },
 }: BaseChatAIProps & {
   schema?: z.ZodType<any, any>
 }) {
@@ -55,7 +53,6 @@ export async function getSingleChatCompletion({
     model,
     messages: composeMessages({ systemPrompt, userPrompt }),
     stream: false,
-    response_format,
   })
   const { content } = response.choices[0].message
   if (!content) throw new Error("content is undefined")
@@ -70,12 +67,10 @@ export async function getSingleChatToolCompletion<T>({
   tools,
   tool_choice,
   schema,
-  response_format = { type: "text" },
 }: BaseChatAIProps & {
   tools: ChatCompletionTool[]
   tool_choice: ChatCompletionToolChoiceOption
   schema: z.ZodType
-  response_format: ChatCompletionCreateParams.ResponseFormat
 }) {
   const openai = getOpenAI({ apiKey })
 
@@ -85,7 +80,6 @@ export async function getSingleChatToolCompletion<T>({
     tools,
     tool_choice,
     stream: false,
-    response_format,
   })
   const argStr = response.choices[0].message?.tool_calls?.[0].function.arguments
   if (!argStr) throw new Error("argString is undefined")

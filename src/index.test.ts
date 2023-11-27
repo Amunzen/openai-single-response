@@ -21,5 +21,6 @@ describe("getSingleChatCompletion", () => {
     } catch (error) {
       console.error("Error:", error)
     }
+    return
   })
 })
